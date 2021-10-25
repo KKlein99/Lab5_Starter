@@ -7,8 +7,19 @@ console.log(vv);
 let vvimg=vv.querySelector('img');
 console.log(vvimg);
 let input=vv.querySelector('input');
+const button=document.querySelector('button');
 window.addEventListener('change', init);
-window.addEventListener('click',Playv);
+button.addEventListener('click',Playv);
+const canvas=document.getElementById('custom_canvas');
+const jsConfetti=new JSConfetti({canvas});
+setTimeout(() => {
+  jsConfetti.addConfetti();
+}, 500)
+
+button.addEventListener('click', () => {
+  if(select.value==='party-horn')
+    jsConfetti.addConfetti();
+})
 
 function init() {
   // TODO
@@ -42,7 +53,9 @@ function init() {
 
 }
 function Playv(){
-  audio.volume=input.value/100;
-  audio.play();
+  if(audio!==null){
+    audio.volume=input.value/100;
+    audio.play();
+  }
 }
 
