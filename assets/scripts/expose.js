@@ -1,17 +1,10 @@
 // expose.js
-
-window.addEventListener('DOMContentLoaded', init);
+var select=document.querySelector('select');
+window.addEventListener('change', init);
 
 function init() {
   // TODO
-  var horn=document.querySelector('horn');
-  console.log(horn);
-  horn.addEventListener('change',images);
-
-}
-
-function images(){
-  var choice=horn.value;
+  var choice=select.value;
   console.log(choice);
   if(choice==='Air horn'){
     url(asserts/images/air-horn.svg);
@@ -24,4 +17,6 @@ function images(){
     var img=new img;
     url(asserts/images/party-horn.svg);
   }
+
 }
+
